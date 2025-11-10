@@ -1,16 +1,12 @@
 # Build a Security Monitoring System
-
-**Project Link:** [View Project](http://learn.nextwork.org/projects/aws-security-monitoring)
-
----
-
-![Image](http://learn.nextwork.org/joyful_navy_gentle_albatross/uploads/aws-security-monitoring_reghtjy)
-
 ---
 
 ## Introducing Today's Project!
 
 In this project, I will demonstrate how to build a comprehensive AWS security monitoring system that tracks and alerts on secret access by creating a secret in AWS Secrets Manager, enabling CloudTrail to log all API activity, setting up CloudWatch metric filters to detect "GetSecretValue" events, configuring CloudWatch Alarms with SNS email notifications, and testing the entire pipeline to ensure I receive real-time alerts whenever my secret is accessed, ultimately implementing a critical security practice for protecting sensitive credentials and detecting potential security incidents.
+
+### Architecture Diagram
+![Image](https://learn.nextwork.org/projects/static/aws-security-monitoring/architecture-complete.png)
 
 ### Tools and concepts
 
@@ -105,6 +101,8 @@ In a project extension, I enabled direct SNS notifications from CloudTrail and c
 After enabling CloudTrail SNS notifications, my inbox was flooded with multiple emails from AWS Notifications as CloudTrail sent a notification for each log file batch it delivered to S3, capturing all management events happening in my AWS account, not just secret access. In terms of the usefulness of these emails, I thought this demonstrates why the CloudWatch Alarm approach is significantly more practical and targeted; CloudWatch filters for only the specific events I care about (GetSecretValue), while direct CloudTrail notifications generate alerts for every single AWS activity, making them overwhelming for human monitoring but better suited for automated security tools that can process and correlate all account activity programmatically.
 
 ![Image](http://learn.nextwork.org/joyful_navy_gentle_albatross/uploads/aws-security-monitoring_d7e8f9g0)
+
+![Image](http://learn.nextwork.org/joyful_navy_gentle_albatross/uploads/aws-security-monitoring_reghtjy)
 
 ---
 **Author:** MOHAMMAD ABRAAR  
